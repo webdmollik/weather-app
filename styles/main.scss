@@ -23,7 +23,7 @@ body {
 
 .container {
   position: relative;
-  max-width: 800px;
+  max-width: 950px;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
@@ -40,7 +40,9 @@ h6 {
 }
 .weather-title{
   text-align: center;
-  margin: 20px;
+  margin: 30px 0 26px 0;
+  color: #e8e9ee;
+  font-size: 25px;
 }
 .weather-card{
   width: 100%;
@@ -51,7 +53,7 @@ h6 {
 }
 .page-wrapper {
   padding: 50px 0;
-  background: url("https://assets.weather-forecast.com/maps/dynamic/UnitedStates.jpg");
+  background: url("https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
   background-position-x: 0%;
   background-position-y: 0%;
  
@@ -213,14 +215,17 @@ background-size: cover;
 }
 
 .weekly {
-  margin-top: 20px;
+  margin-top: 145px;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-column-gap: 30px;
   &__title {
     opacity: 0.9;
     margin-bottom: 15px;
-    font-size: 2rem;
+    text-align: center;
+    margin: 30px 0 26px 0;
+    color: #2b33c5;
+    font-size: 25px;
 
     span {
       font-weight: $f-light;
@@ -261,13 +266,13 @@ background-size: cover;
     }
 
     h3 {
-      margin-bottom: 0;
+      margin-bottom: 10px;
       font-size: 1.5rem;
     }
 
     h4 {
       font-size: 1rem;
-      margin-bottom: 0;
+      margin-bottom: 8px;
 
       &:not(:last-child) {
         margin-right: 15px;
@@ -307,7 +312,7 @@ background-size: cover;
 
   &__right-content {
     // text-align: center;
-    margin-left: 20px;
+    //margin-left: 20px;
     min-width: 120px;
 
     h5 {
@@ -340,7 +345,7 @@ background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: url("https://assets.weather-forecast.com/maps/dynamic/UnitedStates.jpg");
+  background: url("https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
   background-position-x: 0%;
   background-position-y: 0%;
  
@@ -542,4 +547,23 @@ background-size: cover;
   100% {
     transform: rotate(360deg);
   }
+}
+@media only screen and (max-width: 600px) {
+  .weekly {
+    grid-template-columns: repeat(2, 1fr);;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .weekly {
+    grid-template-columns: repeat(1, 1fr);;
+  }
+  .weekly__inner{
+    display: flex;
+  }
+}
+.weekly__card{
+  margin: 10px;
+}
+.weekly__card{
+  margin: 10px;
 }

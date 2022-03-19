@@ -5,8 +5,9 @@ import TodaysWeather from "../components/TodaysWeather";
 import WeeklyWeather from "../components/WeeklyWeather";
 import cities from "../lib/city.list.json";
 import moment from "moment-timezone";
+import { motion, AnimatePresence } from "framer-motion"
 
-export default function Home() {
+export default function Home({isVisible}) {
   const [city, setCity] = useState([]);
   const [wWeather, setWweather] = useState();
   const [hourly, setHourly] = useState();
@@ -82,26 +83,85 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Weather Update </title>
+        <motion.div initial="hidden" animate="visible" variants={{
+          hidden: {
+            scale: .8,
+            opacity: 0
+          },
+          visible: {
+            scale: .8,
+            opacity: 0
+          },
+          visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              delay: .4
+            }
+          },
+        }}>
+          <title>Weather Update </title>
+        </motion.div>
       </Head>
 
       <div className="home">
         <div className="container">
-          <h2 className="weather-title">Weather Update </h2>
+        <motion.div initial="hidden" animate="visible" variants={{
+            hidden: {
+              scale: .8,
+              opacity: 0
+            },
+            visible: {
+              scale: .8,
+              opacity: 0
+            },
+            visible: {
+              scale: 1,
+              opacity: 1,
+              transition: {
+                delay: .4
+              }
+            },
+          }}>
+
+
+            <h2 className="weather-title">Weather Update </h2>
+          </motion.div>
           <SearchBox
             handleChange={handleChange}
             handleSelectCity={handleSelectCity}
             placeholder="Search for a city..."
           />
-          {city && wWeather && timeZone && (
-            <TodaysWeather
-              city={city}
-              weather={wWeather[0]}
-              timezone={timeZone}
-            />
-          )}
+          <AnimatePresence>
+            {city && wWeather && timeZone && (
+              <motion.div
+                initial={{height:0, opacity:0}}
+                animate={{ height:190, opacity:1 }}
+                whileHover={{scale: 1.1}}
+                exit={{height:0, opacity:0}}
+                >
+
+                <TodaysWeather
+                  city={city}
+                  weather={wWeather[0]}
+                  timezone={timeZone}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           {wWeather && timeZone && (
-            <WeeklyWeather weeklyWeather={wWeather} timezone={timeZone} />
+            <AnimatePresence>
+              {isVisible && (
+                <motion.div
+                initial={{height:0, opacity:0}}
+                animate={{ height:190, opacity:1 }}
+                exit={{height:0, opacity:0}}
+                
+                />
+              )}
+              <WeeklyWeather weeklyWeather={wWeather} timezone={timeZone} />
+            </AnimatePresence>
           )}
         </div>
       </div>

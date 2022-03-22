@@ -6,8 +6,28 @@ import WeeklyWeather from "../components/WeeklyWeather";
 import cities from "../lib/city.list.json";
 import moment from "moment-timezone";
 import { motion, AnimatePresence } from "framer-motion"
+//CONTENTFUL-CMS
+import { createClient } from 'contentful';
 
-export default function Home({isVisible}) {
+
+//NEXTJS's default serverside function
+export async function getStaticProps() {
+  const client = createClient({
+      space: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_KEY
+  })
+
+  const res = await client.getEntries({ content_type: "websiteTitle" })
+
+  return {
+      props: {
+          mycontentfulprops: res.items
+      }
+  }
+}
+
+
+export default function Home({mycontentfulprops, isVisible}) {
   const [city, setCity] = useState([]);
   const [wWeather, setWweather] = useState();
   const [hourly, setHourly] = useState();
@@ -125,7 +145,7 @@ export default function Home({isVisible}) {
           }}>
 
 
-            <h2 className="weather-title">Weather Update </h2>
+            <h2 className="weather-title">{mycontentfulprops[0].fields.title} </h2>
           </motion.div>
           <SearchBox
             handleChange={handleChange}

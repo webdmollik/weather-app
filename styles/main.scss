@@ -6,9 +6,9 @@ $f-extra-bold: 800;
 
 // colours
 $dark: #242424;
-$primary: #4361ee;
-$secondary: #5e60ce;
-$tertiary: #22b0db;
+$primary: #2596be;
+$secondary: #1a6985;
+$tertiary: #0f3c4c;
 
 // global
 body {
@@ -77,7 +77,7 @@ background-size: cover;
 }
 
 .today {
-  background-color: #4c6bfb;
+  background-color: #2596be ;
   border-radius: 10px;
   color: #fff;
   margin-top: 20px;
@@ -233,7 +233,7 @@ background-size: cover;
   }
 
   &__card {
-    background-color: #6f82d9;
+    background-color: #165a72;
     border-radius: 10px;
     color: #fff;
   
@@ -362,7 +362,7 @@ background-size: cover;
     width: 100%;
     padding: 15px 15px;
     border-radius: 10px;
-    border: 2px solid #1b22aa;
+    border: 2px solid #1a6985;
     font-size: 1.25rem;
     color: #000;
     font-family: "Nunito", sans-serif;

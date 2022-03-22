@@ -15,8 +15,8 @@ export default function WeeklyWeather({ weeklyWeather, timezone }) {
             }
             
             return (
-              <AnimatePresence>
-              <motion.div whileHover={{scale: 1.06}}>
+              //<AnimatePresence>
+              //<motion.div whileHover={{scale: 1.06}}>
                 <div className="weekly__card" key={weather.dt}>
                   <div className="weekly__inner">
                     <div className="weekly__left-content">
@@ -69,8 +69,8 @@ export default function WeeklyWeather({ weeklyWeather, timezone }) {
                     </div>
                   </div>
                 </div>
-              </motion.div>
-              </AnimatePresence>
+              //</motion.div>
+              //</AnimatePresence>
             );
             
           })}

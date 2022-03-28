@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="./favicon.ico" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/ico" href="./favicon.ico" >
+    <title>Weather App</title>
+</head>
+<body>
+    <noscript>Please enable javascript</noscript>
+    <div id="root"></div>
+    <script>
+        if('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./serviceworker.js')
+                    .then((reg) => console.log('Success: ', reg.scope))
+                    .catch((err) => console.log('Failure: ', err));
+            })
+        }
+    </script>
+</body>
+</html>
